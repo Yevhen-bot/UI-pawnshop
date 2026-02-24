@@ -1,0 +1,41 @@
+// components/_buttons.scss
+
+.btn {
+    @include button-base;
+
+    &-primary {
+        background-color: $color-accent;
+        color: white;
+
+        &:hover {
+            background-color: darken($color-accent, 10%);
+        }
+    }
+
+    &-secondary {
+        background-color: $color-secondary;
+        color: white;
+
+        &:hover {
+            background-color: darken($color-secondary, 10%);
+        }
+    }
+
+    &-danger {
+        background-color: $color-error;
+        color: white;
+
+        &:hover {
+            background-color: darken($color-error, 10%);
+        }
+    }
+
+    &-success {
+        background-color: $color-success;
+        color: white;
+
+        &:hover {
+            background-color: darken($color-success, 10%);
+        }
+    }
+}

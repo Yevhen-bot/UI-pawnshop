@@ -1,0 +1,35 @@
+// components/_tables.scss
+
+.table-container {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: $color-surface;
+    border-radius: $border-radius;
+    overflow: hidden;
+}
+
+.table th,
+.table td {
+    padding: $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid $color-border;
+}
+
+.table th {
+    background: $color-primary;
+    color: white;
+    font-weight: 600;
+}
+
+.table tr:hover {
+    background: $color-background;
+}
+
+.table-actions {
+    display: flex;
+    gap: $spacing-sm;
+}

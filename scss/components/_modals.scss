@@ -1,0 +1,70 @@
+// components/_modals.scss
+
+.modal-toggle {
+    display: none;
+
+    &:checked + .modal {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9);
+    transition:
+        opacity $transition-base,
+        visibility $transition-base,
+        transform $transition-base;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: $color-surface;
+    border-radius: $border-radius;
+    padding: $spacing-lg;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $color-text-light;
+    line-height: 1;
+
+    &:hover {
+        color: $color-text;
+    }
+}
+
+.modal-footer {
+    @include flex-between;
+    margin-top: $spacing-lg;
+    gap: $spacing-md;
+}

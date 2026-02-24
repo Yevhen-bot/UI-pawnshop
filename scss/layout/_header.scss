@@ -1,0 +1,33 @@
+// layout/_header.scss
+
+.header {
+    background: $color-primary;
+    color: white;
+    padding: $spacing-md $spacing-lg;
+}
+
+.header-content {
+    @include flex-between;
+}
+
+.header-logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.header-nav {
+    display: flex;
+    gap: $spacing-lg;
+    align-items: center;
+}
+
+.header-link {
+    color: white;
+    opacity: 0.8;
+    transition: opacity $transition-base;
+
+    &:hover {
+        opacity: 1;
+        color: white;
+    }
+}

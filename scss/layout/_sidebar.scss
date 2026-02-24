@@ -1,0 +1,33 @@
+// layout/_sidebar.scss
+
+.sidebar {
+    width: 250px;
+    background: $color-secondary;
+    min-height: 100vh;
+    padding: $spacing-lg 0;
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.sidebar-link {
+    display: block;
+    padding: $spacing-md $spacing-lg;
+    color: white;
+    opacity: 0.8;
+    transition:
+        background $transition-base,
+        opacity $transition-base;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        opacity: 1;
+        color: white;
+    }
+
+    &.active {
+        background: $color-accent;
+        opacity: 1;
+    }
+}

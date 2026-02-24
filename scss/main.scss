@@ -1,0 +1,15 @@
+// main.scss
+
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'base/reset';
+@import 'base/typography';
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/modals';
+@import 'components/notifications';
+@import 'components/tables';
+@import 'layout/header';
+@import 'layout/sidebar';
+@import 'layout/footer';
+@import 'pages/login';
