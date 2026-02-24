@@ -1,0 +1,41 @@
+// components/_badges.scss
+
+.badge {
+    display: inline-block;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &-admin {
+        background: rgba($color-accent, 0.15);
+        color: $color-accent;
+    }
+
+    &-regular {
+        background: rgba($color-secondary, 0.15);
+        color: $color-secondary;
+    }
+
+    &-active {
+        background: rgba($color-success, 0.15);
+        color: $color-success;
+    }
+
+    &-inactive {
+        background: rgba($color-text-light, 0.15);
+        color: $color-text-light;
+    }
+
+    &-warning {
+        background: rgba($color-warning, 0.15);
+        color: $color-warning;
+    }
+
+    &-danger {
+        background: rgba($color-error, 0.15);
+        color: $color-error;
+    }
+}

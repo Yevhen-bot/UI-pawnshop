@@ -1,0 +1,43 @@
+// pages/_login.scss
+
+.login-page {
+    min-height: 100vh;
+    @include flex-center;
+    background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: $spacing-lg;
+}
+
+.login-card {
+    @include card;
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: $spacing-lg;
+
+    h1 {
+        color: $color-primary;
+        margin-bottom: $spacing-xs;
+    }
+
+    p {
+        color: $color-text-light;
+        margin: 0;
+    }
+}
+
+.login-form {
+    text-align: left;
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: $spacing-md;
+    padding: $spacing-md;
+    font-size: 1rem;
+}

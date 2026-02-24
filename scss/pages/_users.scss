@@ -1,0 +1,12 @@
+// pages/_users.scss
+
+.page-actions {
+    margin-bottom: $spacing-lg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+        margin: 0;
+    }
+}

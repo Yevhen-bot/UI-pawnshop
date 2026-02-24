@@ -1,0 +1,120 @@
+// pages/_catalog.scss
+
+.filter-bar {
+    background: $color-surface;
+    padding: $spacing-md;
+    border-radius: $border-radius;
+    margin-bottom: $spacing-lg;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.filter-row {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .form-group {
+        margin-bottom: 0;
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .form-select {
+        width: auto;
+    }
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: $spacing-lg;
+}
+
+.item-card {
+    background: $color-surface;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.item-image {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+
+    &-blue {
+        background: linear-gradient(135deg, $color-accent 0%, darken($color-accent, 10%) 100%);
+    }
+
+    &-orange {
+        background: linear-gradient(135deg, $color-warning 0%, darken($color-warning, 10%) 100%);
+    }
+
+    &-purple {
+        background: linear-gradient(135deg, $color-purple 0%, darken($color-purple, 10%) 100%);
+    }
+
+    &-teal {
+        background: linear-gradient(135deg, $color-teal 0%, darken($color-teal, 10%) 100%);
+    }
+
+    &-dark {
+        background: linear-gradient(135deg, $color-secondary 0%, $color-primary 100%);
+    }
+}
+
+.item-content {
+    padding: $spacing-md;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: $spacing-sm;
+
+    h3 {
+        margin: 0;
+        font-size: 1.125rem;
+    }
+}
+
+.item-description {
+    color: $color-text-light;
+    font-size: 0.875rem;
+    margin-bottom: $spacing-md;
+}
+
+.item-pricing {
+    display: flex;
+    justify-content: space-between;
+    padding-top: $spacing-md;
+    border-top: 1px solid $color-background;
+
+    .price-item {
+        .price-label {
+            color: $color-text-light;
+            font-size: 0.75rem;
+        }
+
+        .price-value {
+            font-weight: 600;
+
+            &.positive {
+                color: $color-success;
+            }
+        }
+    }
+}

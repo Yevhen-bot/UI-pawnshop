@@ -1,0 +1,58 @@
+// abstracts/_mixins.scss
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin button-base {
+    display: inline-block;
+    padding: $spacing-sm $spacing-md;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-family: $font-family-base;
+    transition:
+        background-color $transition-base,
+        transform $transition-base;
+
+    &:hover {
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+@mixin input-base {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+    font-family: $font-family-base;
+    font-size: 1rem;
+    transition:
+        border-color $transition-base,
+        box-shadow $transition-base;
+
+    &:focus {
+        outline: none;
+        border-color: $color-accent;
+        box-shadow: 0 0 0 2px rgba($color-accent, 0.2);
+    }
+}
+
+@mixin card {
+    background: $color-surface;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: $spacing-lg;
+}

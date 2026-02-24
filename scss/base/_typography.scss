@@ -1,0 +1,47 @@
+// base/_typography.scss
+
+body {
+    font-family: $font-family-base;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $color-text;
+    background-color: $color-background;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 $spacing-md;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin: 0 0 $spacing-md;
+}
+
+a {
+    color: $color-accent;
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+        color: darken($color-accent, 10%);
+    }
+}

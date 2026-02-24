@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Users Management - Pawnshop Network" />
+    <title>Users - Pawnshop Network</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- main application layout -->
+    <div class="app-layout">
+      <!-- sidebar navigation -->
+      <aside class="app-sidebar sidebar">
+        <div class="sidebar-logo">
+          <h2>Pawnshop</h2>
+          <p>Network Manager</p>
+        </div>
+        <nav>
+          <ul class="sidebar-nav">
+            <li>
+              <a class="sidebar-link" href="users.html">
+                <span class="sidebar-icon">👥</span>
+                Users
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-link" href="catalog.html">
+                <span class="sidebar-icon">📦</span>
+                Catalog
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-link" href="estimates.html">
+                <span class="sidebar-icon">💰</span>
+                Estimates
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-link" href="operations.html">
+                <span class="sidebar-icon">📋</span>
+                Operations
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- end sidebar navigation -->
+
+      <!-- main content area -->
+      <div class="app-content">
+        <!-- header with logout -->
+        <header class="app-header">
+          <h1 class="app-title">Users</h1>
+          <div class="app-user">
+            <div class="app-user-info">
+              <div class="app-user-name">Admin User</div>
+              <div class="app-user-role">Administrator</div>
+            </div>
+            <a class="app-logout" href="index.html">Logout</a>
+          </div>
+        </header>
+        <!-- end header -->
+
+        <!-- main content -->
+        <main class="app-main">
+          <!-- page actions -->
+          <div class="page-actions">
+            <h2>User List</h2>
+            <a class="btn btn-primary" href="#create-user">+ Create User</a>
+          </div>
+          <!-- end page actions -->
+
+          <!-- users table -->
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Created</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>admin</td>
+                  <td><span class="badge badge-admin">Admin</span></td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td>2024-01-15</td>
+                  <td>
+                    <div class="table-actions">
+                      <a class="btn btn-small btn-secondary" href="user-profile.html">View</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>jsmith</td>
+                  <td><span class="badge badge-regular">Regular</span></td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td>2024-02-20</td>
+                  <td>
+                    <div class="table-actions">
+                      <a class="btn btn-small btn-secondary" href="user-profile.html">View</a>
+                      <a class="btn btn-small btn-danger" href="#delete-user">Delete</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>mjohnson</td>
+                  <td><span class="badge badge-regular">Regular</span></td>
+                  <td><span class="badge badge-inactive">Inactive</span></td>
+                  <td>2024-03-10</td>
+                  <td>
+                    <div class="table-actions">
+                      <a class="btn btn-small btn-secondary" href="user-profile.html">View</a>
+                      <a class="btn btn-small btn-danger" href="#delete-user">Delete</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>swilson</td>
+                  <td><span class="badge badge-regular">Regular</span></td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td>2024-04-05</td>
+                  <td>
+                    <div class="table-actions">
+                      <a class="btn btn-small btn-secondary" href="user-profile.html">View</a>
+                      <a class="btn btn-small btn-danger" href="#delete-user">Delete</a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- end users table -->
+        </main>
+        <!-- end main content -->
+
+        <!-- footer -->
+        <footer class="footer">
+          <p>&copy; 2024 Pawnshop Network. All rights reserved.</p>
+        </footer>
+        <!-- end footer -->
+      </div>
+    </div>
+
+    <!-- create user modal -->
+    <div id="create-user" class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Create User</h2>
+        <a class="modal-close" href="#">&times;</a>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="get">
+          <div class="form-group">
+            <label class="form-label" for="new-username">Username</label>
+            <input class="form-input" type="text" id="new-username" name="username" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-password">Password</label>
+            <input class="form-input" type="password" id="new-password" name="password" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="confirm-password">Confirm Password</label>
+            <input
+              class="form-input"
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="user-role">Role</label>
+            <select class="form-select" id="user-role" name="role">
+              <option value="regular">Regular User</option>
+              <option value="admin">Administrator</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-secondary" href="#">Cancel</a>
+            <button class="btn btn-primary" type="submit">Create User</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <a class="modal-overlay" href="#"></a>
+    <!-- end create user modal -->
+
+    <!-- delete user modal -->
+    <div id="delete-user" class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Delete User</h2>
+        <a class="modal-close" href="#">&times;</a>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this user? This action cannot be undone.</p>
+        <div class="modal-footer">
+          <a class="btn btn-secondary" href="#">Cancel</a>
+          <button class="btn btn-danger" type="button">Delete</button>
+        </div>
+      </div>
+    </div>
+    <a class="modal-overlay" href="#"></a>
+    <!-- end delete user modal -->
+  </body>
+</html>

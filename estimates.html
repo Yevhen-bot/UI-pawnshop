@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Item Estimates - Pawnshop Network" />
+    <title>Estimates - Pawnshop Network</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- main application layout -->
+    <div class="app-layout">
+      <!-- sidebar navigation -->
+      <aside class="app-sidebar sidebar">
+        <div class="sidebar-logo">
+          <h2>Pawnshop</h2>
+          <p>Network Manager</p>
+        </div>
+        <nav>
+          <ul class="sidebar-nav">
+            <li>
+              <a class="sidebar-link" href="users.html">
+                <span class="sidebar-icon">👥</span>
+                Users
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-link" href="catalog.html">
+                <span class="sidebar-icon">📦</span>
+                Catalog
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-link active" href="estimates.html">
+                <span class="sidebar-icon">💰</span>
+                Estimates
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-link" href="operations.html">
+                <span class="sidebar-icon">📋</span>
+                Operations
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- end sidebar navigation -->
+
+      <!-- main content area -->
+      <div class="app-content">
+        <!-- header with logout -->
+        <header class="app-header">
+          <h1 class="app-title">Item Estimates</h1>
+          <div class="app-user">
+            <div class="app-user-info">
+              <div class="app-user-name">Admin User</div>
+              <div class="app-user-role">Administrator</div>
+            </div>
+            <a class="app-logout" href="index.html">Logout</a>
+          </div>
+        </header>
+        <!-- end header -->
+
+        <!-- main content -->
+        <main class="app-main">
+          <!-- new estimate form -->
+          <div class="estimate-form-card">
+            <h2>New Item Estimate</h2>
+
+            <form action="#" method="get">
+              <div class="estimate-form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="item-category">Category</label>
+                  <select class="form-select" id="item-category" name="category">
+                    <option value="">Select Category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="jewelry">Jewelry</option>
+                    <option value="vehicles">Vehicles</option>
+                    <option value="tools">Tools</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="item-brand">Brand</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="item-brand"
+                    name="brand"
+                    placeholder="Enter brand name"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="item-model">Model</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="item-model"
+                    name="model"
+                    placeholder="Enter model"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="item-condition">Condition</label>
+                  <select class="form-select" id="item-condition" name="condition">
+                    <option value="">Select Condition</option>
+                    <option value="new">Like New</option>
+                    <option value="excellent">Excellent</option>
+                    <option value="good">Good</option>
+                    <option value="fair">Fair</option>
+                    <option value="poor">Poor</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="item-age">Approximate Age</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="item-age"
+                    name="age"
+                    placeholder="e.g., 2 years"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="market-value">Estimated Market Value</label>
+                  <input
+                    class="form-input"
+                    type="number"
+                    id="market-value"
+                    name="market-value"
+                    placeholder="$0.00"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="pawn-offer">Recommended Pawn Offer</label>
+                  <input
+                    class="form-input"
+                    type="number"
+                    id="pawn-offer"
+                    name="pawn-offer"
+                    placeholder="$0.00"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="item-notes">Notes</label>
+                  <textarea
+                    class="form-textarea"
+                    id="item-notes"
+                    name="notes"
+                    placeholder="Additional details about the item..."
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="estimate-form-actions">
+                <button class="btn btn-primary" type="submit">Submit Estimate</button>
+                <button class="btn btn-secondary" type="reset">Clear Form</button>
+              </div>
+            </form>
+          </div>
+          <!-- end new estimate form -->
+
+          <!-- pending estimates -->
+          <div class="pending-section">
+            <h2>Pending Estimates</h2>
+            <div class="table-container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Item</th>
+                    <th>Category</th>
+                    <th>Condition</th>
+                    <th>Market Value</th>
+                    <th>Pawn Offer</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>EST-001</td>
+                    <td>iPhone 15 Pro</td>
+                    <td>Electronics</td>
+                    <td><span class="badge badge-regular">Like New</span></td>
+                    <td>$950</td>
+                    <td>$475</td>
+                    <td><span class="badge badge-warning">Pending</span></td>
+                    <td>2024-06-14</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-success">Approve</button>
+                        <button class="btn btn-small btn-danger">Reject</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>EST-002</td>
+                    <td>Gold Necklace</td>
+                    <td>Jewelry</td>
+                    <td><span class="badge badge-regular">Good</span></td>
+                    <td>$1,200</td>
+                    <td>$600</td>
+                    <td><span class="badge badge-active">Approved</span></td>
+                    <td>2024-06-13</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-secondary" disabled>View</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>EST-003</td>
+                    <td>Dell Laptop</td>
+                    <td>Electronics</td>
+                    <td><span class="badge badge-regular">Fair</span></td>
+                    <td>$350</td>
+                    <td>$175</td>
+                    <td><span class="badge badge-danger">Rejected</span></td>
+                    <td>2024-06-12</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-secondary" disabled>View</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>EST-004</td>
+                    <td>Honda Civic 2019</td>
+                    <td>Vehicles</td>
+                    <td><span class="badge badge-regular">Excellent</span></td>
+                    <td>$14,000</td>
+                    <td>$7,000</td>
+                    <td><span class="badge badge-warning">Pending</span></td>
+                    <td>2024-06-15</td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-success">Approve</button>
+                        <button class="btn btn-small btn-danger">Reject</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end pending estimates -->
+        </main>
+        <!-- end main content -->
+
+        <!-- footer -->
+        <footer class="footer">
+          <p>&copy; 2024 Pawnshop Network. All rights reserved.</p>
+        </footer>
+        <!-- end footer -->
+      </div>
+    </div>
+  </body>
+</html>

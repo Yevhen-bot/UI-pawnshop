@@ -1,0 +1,88 @@
+// layout/_layout.scss
+
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.app-sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, $color-primary 0%, darken($color-primary, 5%) 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-content {
+    flex: 1;
+    margin-left: 260px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-main {
+    flex: 1;
+    padding: $spacing-xl;
+    background: $color-background;
+}
+
+.app-header {
+    background: $color-surface;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: $spacing-md $spacing-xl;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $color-primary;
+    margin: 0;
+}
+
+.app-user {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+}
+
+.app-user-info {
+    text-align: right;
+
+    .app-user-name {
+        font-weight: 600;
+        color: $color-text;
+    }
+
+    .app-user-role {
+        font-size: 0.875rem;
+        color: $color-text-light;
+    }
+}
+
+.app-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: $spacing-sm $spacing-md;
+    background: transparent;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+    color: $color-text;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $color-error;
+        border-color: $color-error;
+        color: white;
+    }
+}
