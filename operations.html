@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Operations History - Pawnshop Network" />
+    <title>Operations - Pawnshop Network</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- main application layout -->
+    <div class="app-layout">
+      <!-- sidebar navigation -->
+      <aside class="app-sidebar sidebar">
+        <div class="sidebar-logo">
+          <h2>Pawnshop</h2>
+          <p>Network Manager</p>
+        </div>
+        <nav>
+          <ul class="sidebar-nav">
+            <li>
+              <a class="sidebar-link" href="users.html">
+                <span class="sidebar-icon">👥</span>
+                Users
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-link" href="catalog.html">
+                <span class="sidebar-icon">📦</span>
+                Catalog
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-link" href="estimates.html">
+                <span class="sidebar-icon">💰</span>
+                Estimates
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-link active" href="operations.html">
+                <span class="sidebar-icon">📋</span>
+                Operations
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- end sidebar navigation -->
+
+      <!-- main content area -->
+      <div class="app-content">
+        <!-- header with logout -->
+        <header class="app-header">
+          <h1 class="app-title">Operations History</h1>
+          <div class="app-user">
+            <div class="app-user-info">
+              <div class="app-user-name">Admin User</div>
+              <div class="app-user-role">Administrator</div>
+            </div>
+            <a class="app-logout" href="index.html">Logout</a>
+          </div>
+        </header>
+        <!-- end header -->
+
+        <!-- main content -->
+        <main class="app-main">
+          <!-- stats summary -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">Total Loans</div>
+              <div class="stat-value blue">247</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Total Redemptions</div>
+              <div class="stat-value green">189</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Items Sold</div>
+              <div class="stat-value orange">42</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Total Value</div>
+              <div class="stat-value dark">$1.2M</div>
+            </div>
+          </div>
+          <!-- end stats summary -->
+
+          <!-- filter section -->
+          <div class="filter-bar">
+            <div class="filter-row">
+              <div class="form-group">
+                <input class="form-input" type="date" />
+              </div>
+              <span>to</span>
+              <div class="form-group">
+                <input class="form-input" type="date" />
+              </div>
+              <select class="form-select">
+                <option value="">All Types</option>
+                <option value="loan">Loan</option>
+                <option value="redemption">Redemption</option>
+                <option value="sale">Sale</option>
+              </select>
+              <select class="form-select">
+                <option value="">All Status</option>
+                <option value="active">Active</option>
+                <option value="completed">Completed</option>
+                <option value="expired">Expired</option>
+              </select>
+            </div>
+          </div>
+          <!-- end filter section -->
+
+          <!-- operations table -->
+          <div class="operations-section">
+            <div class="table-container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Customer</th>
+                    <th>Item</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>OP-1001</td>
+                    <td>2024-06-15</td>
+                    <td><span class="badge badge-admin">Loan</span></td>
+                    <td>Robert Brown</td>
+                    <td>iPhone 14 Pro</td>
+                    <td>$450</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-success">Redeem</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OP-1000</td>
+                    <td>2024-06-14</td>
+                    <td><span class="badge badge-success">Redemption</span></td>
+                    <td>Emily Davis</td>
+                    <td>Gold Ring 18K</td>
+                    <td>$800</td>
+                    <td><span class="badge badge-inactive">Completed</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-secondary">View</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OP-0999</td>
+                    <td>2024-06-13</td>
+                    <td><span class="badge badge-admin">Loan</span></td>
+                    <td>Michael Chen</td>
+                    <td>Rolex Submariner</td>
+                    <td>$3,500</td>
+                    <td><span class="badge badge-danger">Expired</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-warning">Extend</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OP-0998</td>
+                    <td>2024-06-12</td>
+                    <td><span class="badge badge-danger">Sale</span></td>
+                    <td>Sarah Wilson</td>
+                    <td>Rolex Submariner</td>
+                    <td>$7,200</td>
+                    <td><span class="badge badge-inactive">Completed</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-secondary">View</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OP-0997</td>
+                    <td>2024-06-11</td>
+                    <td><span class="badge badge-success">Redemption</span></td>
+                    <td>James Taylor</td>
+                    <td>MacBook Pro 16"</td>
+                    <td>$1,200</td>
+                    <td><span class="badge badge-inactive">Completed</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-secondary">View</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OP-0996</td>
+                    <td>2024-06-10</td>
+                    <td><span class="badge badge-admin">Loan</span></td>
+                    <td>Lisa Anderson</td>
+                    <td>Diamond Earrings</td>
+                    <td>$2,100</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-success">Redeem</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OP-0995</td>
+                    <td>2024-06-09</td>
+                    <td><span class="badge badge-admin">Loan</span></td>
+                    <td>David Martinez</td>
+                    <td>Toyota Camry 2020</td>
+                    <td>$8,000</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-success">Redeem</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OP-0994</td>
+                    <td>2024-06-08</td>
+                    <td><span class="badge badge-danger">Sale</span></td>
+                    <td>Jennifer White</td>
+                    <td>Canon Camera</td>
+                    <td>$650</td>
+                    <td><span class="badge badge-inactive">Completed</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <button class="btn btn-small btn-secondary">View</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end operations table -->
+        </main>
+        <!-- end main content -->
+
+        <!-- footer -->
+        <footer class="footer">
+          <p>&copy; 2024 Pawnshop Network. All rights reserved.</p>
+        </footer>
+        <!-- end footer -->
+      </div>
+    </div>
+  </body>
+</html>

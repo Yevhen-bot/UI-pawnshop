@@ -1,0 +1,59 @@
+// pages/_user-profile.scss
+
+.profile-back {
+    margin-bottom: $spacing-lg;
+}
+
+.profile-card {
+    background: $color-surface;
+    border-radius: $border-radius;
+    padding: $spacing-xl;
+    margin-bottom: $spacing-xl;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid $color-border;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $color-accent 0%, $color-primary 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.profile-info {
+    h2 {
+        margin: 0 0 $spacing-sm;
+    }
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+}
+
+.profile-detail {
+    .detail-label {
+        color: $color-text-light;
+        font-size: 0.875rem;
+        margin-bottom: $spacing-xs;
+    }
+
+    .detail-value {
+        font-weight: 600;
+    }
+}

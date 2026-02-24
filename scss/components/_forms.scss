@@ -1,7 +1,7 @@
 // components/_forms.scss
 
 .form-group {
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-lg;
 }
 
 .form-label {
@@ -9,17 +9,34 @@
     margin-bottom: $spacing-xs;
     font-weight: 500;
     color: $color-text;
+    transition: color 0.2s ease;
 }
 
 .form-input {
     @include input-base;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+
+    &:focus {
+        outline: none;
+        border-color: $color-accent;
+        box-shadow: 0 0 0 3px rgba($color-accent, 0.15);
+    }
 
     &.error {
         border-color: $color-error;
+        background-color: rgba($color-error, 0.03);
 
         &:focus {
-            box-shadow: 0 0 0 2px rgba($color-error, 0.2);
+            box-shadow: 0 0 0 3px rgba($color-error, 0.15);
         }
+    }
+
+    &::placeholder {
+        color: $color-text-light;
+        opacity: 0.7;
     }
 }
 
@@ -27,6 +44,35 @@
     color: $color-error;
     font-size: 0.875rem;
     margin-top: $spacing-xs;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    animation: slideIn 0.3s ease;
+
+    &::before {
+        content: "!";
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        background: $color-error;
+        color: white;
+        border-radius: 50%;
+        font-size: 0.625rem;
+        font-weight: bold;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .form-select {
@@ -36,6 +82,15 @@
     background-repeat: no-repeat;
     background-position: right $spacing-md center;
     padding-right: $spacing-xl;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    &:focus {
+        outline: none;
+        border-color: $color-accent;
+        box-shadow: 0 0 0 3px rgba($color-accent, 0.15);
+    }
 }
 
 .form-checkbox {
@@ -45,8 +100,29 @@
     cursor: pointer;
 
     input[type="checkbox"] {
-        width: 1.125rem;
-        height: 1.125rem;
+        width: 1.25rem;
+        height: 1.25rem;
         cursor: pointer;
+        accent-color: $color-accent;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.form-textarea {
+    @include input-base;
+    min-height: 100px;
+    resize: vertical;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    &:focus {
+        outline: none;
+        border-color: $color-accent;
+        box-shadow: 0 0 0 3px rgba($color-accent, 0.15);
     }
 }

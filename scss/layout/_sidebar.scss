@@ -1,33 +1,59 @@
 // layout/_sidebar.scss
 
-.sidebar {
-    width: 250px;
-    background: $color-secondary;
-    min-height: 100vh;
-    padding: $spacing-lg 0;
+.sidebar-logo {
+    padding: $spacing-lg;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: $spacing-md;
+
+    h2 {
+        color: white;
+        font-size: 1.25rem;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.75rem;
+        margin: $spacing-xs 0 0;
+    }
 }
 
 .sidebar-nav {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar-link {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
     padding: $spacing-md $spacing-lg;
-    color: white;
-    opacity: 0.8;
-    transition:
-        background $transition-base,
-        opacity $transition-base;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
 
     &:hover {
-        background: rgba(255, 255, 255, 0.1);
-        opacity: 1;
+        background: rgba(255, 255, 255, 0.08);
         color: white;
+        border-left-color: $color-accent;
     }
 
     &.active {
-        background: $color-accent;
-        opacity: 1;
+        background: rgba($color-accent, 0.15);
+        color: white;
+        border-left-color: $color-accent;
+    }
+
+    .sidebar-icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
     }
 }

@@ -1,12 +1,25 @@
 # AGENTS.MD - Pawnshop UI Project
 
-## STEP 1: FETCH WORKSPACE CONTEXT (CRITICAL)
+## CURRENT PROJECT STATUS
 
-Before writing any code or proposing a folder structure, you MUST use your available MCP tool (specifically context7) to check if a project structure or specific architectural guidelines already exist in the workspace.
+### Completed Pages
 
-If context7 returns a relevant project structure: You MUST adopt and strictly follow that existing structure for all generated files.
+- `index.html` - Login page
+- `users.html` - Users listing with CSS-only modals (Create/Delete user)
+- `user-profile.html` - User information with Edit modal
+- `catalog.html` - Items grid with filters
+- `estimates.html` - Item evaluation form and pending estimates table
+- `operations.html` - Operations history with stats dashboard
 
-If context7 returns no relevant structure: You must create your own scalable structure. Use a simplified "7-1" SCSS architecture adapted for a static project (folders for abstracts, base, components, layout, pages) and place the compiled main.css in a separate css/ folder.
+### Completed SCSS Architecture
+
+- `scss/abstracts/_variables.scss` - Color variables
+- `scss/abstracts/_mixins.scss` - Reusable mixins
+- `scss/base/_reset.scss` - CSS reset
+- `scss/base/_typography.scss` - Typography styles
+- `scss/components/` - Buttons, forms, modals, notifications, tables, badges
+- `scss/layout/` - Header, sidebar, footer, main layout
+- `scss/pages/` - Page-specific styles
 
 ---
 
@@ -25,7 +38,7 @@ Include static UI elements for Error notifications and Validation errors on rele
 
 ### CRITICAL RULE: > DO NOT write any JavaScript
 
-Zero JavaScript is allowed. For interactivity like modals, dialogs, or dropdowns, you MUST use CSS-only techniques (e.g., the `:target` pseudo-class or the hidden checkbox hack).
+Zero JavaScript is allowed. For interactivity like modals, dialogs, or dropdowns, you MUST use CSS-only techniques (e.g., the `:target` pseudo-class).
 
 ---
 
@@ -40,14 +53,16 @@ Zero JavaScript is allowed. For interactivity like modals, dialogs, or dropdowns
 - Add HTML comments to describe blocks of code
 - Use strictly lowercase for element names, attributes, values, and class names
 - Class names must be context-based and ALWAYS use hyphens (e.g., user-card). Do not use underscores or camelCase
+- **STRICTLY NO INLINE STYLES** - All styles must be in SCSS files
 
 ---
 
 ## CSS/SCSS REQUIREMENTS
 
-- Output SCSS code. Organize it conceptually into variables, mixins, typography, components, and layout blocks
-- Strictly NO inline styles and NO global selectors (`*`)
-- Create a specific SCSS block representing a separate file for ALL color variables. Use variables for all colors
+- Output SCSS code. Organize it conceptually into variables, mixins, typography, components, layout, and pages
+- **Strictly NO inline styles** - Never use `style="..."` in HTML
+- **Strictly NO global selectors (`*`)** - Avoid unless absolutely necessary
+- All colors must use SCSS variables from `scss/abstracts/_variables.scss`
 - Define generic font families (e.g., sans-serif)
 - If a value is 0, omit the unit (e.g., `margin: 0;` not `margin: 0px;`)
 - Implement responsive/adaptive design
@@ -73,3 +88,49 @@ Zero JavaScript is allowed. For interactivity like modals, dialogs, or dropdowns
 2. Output the chosen folder structure
 3. Generate the index.html (Login) and the foundational SCSS (Variables, Mixins, and Typography)
 4. Wait for approval before proceeding to the other pages
+5. After any HTML changes, verify no inline styles are present
+6. After any design changes, add corresponding SCSS to appropriate files in `scss/pages/` or `scss/components/`
+
+---
+
+## FOLDER STRUCTURE
+
+```
+UI-pawnshop/
+├── index.html
+├── users.html
+├── user-profile.html
+├── catalog.html
+├── estimates.html
+├── operations.html
+├── AGENTS.md
+├── scss/
+│   ├── abstracts/
+│   │   ├── _variables.scss
+│   │   └── _mixins.scss
+│   ├── base/
+│   │   ├── _reset.scss
+│   │   └── _typography.scss
+│   ├── components/
+│   │   ├── _buttons.scss
+│   │   ├── _forms.scss
+│   │   ├── _modals.scss
+│   │   ├── _notifications.scss
+│   │   ├── _tables.scss
+│   │   └── _badges.scss
+│   ├── layout/
+│   │   ├── _header.scss
+│   │   ├── _sidebar.scss
+│   │   ├── _footer.scss
+│   │   └── _layout.scss
+│   ├── pages/
+│   │   ├── _login.scss
+│   │   ├── _users.scss
+│   │   ├── _user-profile.scss
+│   │   ├── _catalog.scss
+│   │   ├── _estimates.scss
+│   │   └── _operations.scss
+│   └── main.scss
+└── css/
+    └── main.css (compiled)
+```
