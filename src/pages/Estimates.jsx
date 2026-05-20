@@ -30,8 +30,9 @@ export default function Estimates() {
       );
     } catch (error) {
       throw new Error('Failed to load data');
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   useEffect(() => {
