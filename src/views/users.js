@@ -1,14 +1,5 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Users Management - Pawnshop Network" />
-    <title>Users - Pawnshop Network</title>
-    <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body>
-    <!-- main application layout -->
+export const users_template = `
+<!-- main application layout -->
     <div class="app-layout">
       <!-- sidebar navigation -->
       <aside class="app-sidebar sidebar">
@@ -19,25 +10,25 @@
         <nav>
           <ul class="sidebar-nav">
             <li>
-              <a class="sidebar-link" href="users.html">
+              <a class="sidebar-link" href="/users" data-link>
                 <span class="sidebar-icon">👥</span>
                 Users
               </a>
             </li>
             <li>
-              <a class="sidebar-link" href="catalog.html">
+              <a class="sidebar-link" href="/catalog" data-link>
                 <span class="sidebar-icon">📦</span>
                 Catalog
               </a>
             </li>
             <li>
-              <a class="sidebar-link" href="estimates.html">
+              <a class="sidebar-link" href="/estimates" data-link>
                 <span class="sidebar-icon">💰</span>
                 Estimates
               </a>
             </li>
             <li>
-              <a class="sidebar-link" href="operations.html">
+              <a class="sidebar-link" href="/operations" data-link>
                 <span class="sidebar-icon">📋</span>
                 Operations
               </a>
@@ -54,10 +45,10 @@
           <h1 class="app-title">Users</h1>
           <div class="app-user">
             <div class="app-user-info">
-              <div class="app-user-name">Admin User</div>
-              <div class="app-user-role">Administrator</div>
+              <div class="app-user-name"></div>
+              <div class="app-user-role"></div>
             </div>
-            <a class="app-logout" href="index.html">Logout</a>
+            <a class="app-logout" href="/index" data-link>Logout</a>
           </div>
         </header>
         <!-- end header -->
@@ -77,66 +68,14 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Username</th>
+                  <th>Name</th>
                   <th>Role</th>
                   <th>Status</th>
-                  <th>Created</th>
+                  <th>Birth Date</th>
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>admin</td>
-                  <td><span class="badge badge-admin">Admin</span></td>
-                  <td><span class="badge badge-active">Active</span></td>
-                  <td>2024-01-15</td>
-                  <td>
-                    <div class="table-actions">
-                      <a class="btn btn-small btn-secondary" href="user-profile.html">View</a>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>jsmith</td>
-                  <td><span class="badge badge-regular">Regular</span></td>
-                  <td><span class="badge badge-active">Active</span></td>
-                  <td>2024-02-20</td>
-                  <td>
-                    <div class="table-actions">
-                      <a class="btn btn-small btn-secondary" href="user-profile.html">View</a>
-                      <a class="btn btn-small btn-danger" href="#delete-user">Delete</a>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>mjohnson</td>
-                  <td><span class="badge badge-regular">Regular</span></td>
-                  <td><span class="badge badge-inactive">Inactive</span></td>
-                  <td>2024-03-10</td>
-                  <td>
-                    <div class="table-actions">
-                      <a class="btn btn-small btn-secondary" href="user-profile.html">View</a>
-                      <a class="btn btn-small btn-danger" href="#delete-user">Delete</a>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>swilson</td>
-                  <td><span class="badge badge-regular">Regular</span></td>
-                  <td><span class="badge badge-active">Active</span></td>
-                  <td>2024-04-05</td>
-                  <td>
-                    <div class="table-actions">
-                      <a class="btn btn-small btn-secondary" href="user-profile.html">View</a>
-                      <a class="btn btn-small btn-danger" href="#delete-user">Delete</a>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody></tbody>
             </table>
           </div>
           <!-- end users table -->
@@ -157,12 +96,7 @@
         <h2 class="modal-title">Create User</h2>
         <a class="modal-close" href="#">&times;</a>
       </div>
-      <div class="modal-body">
-        <form action="#" method="get">
-          <div class="form-group">
-            <label class="form-label" for="new-username">Username</label>
-            <input class="form-input" type="text" id="new-username" name="username" required />
-          </div>
+      <div class="modal-body"></div>
           <div class="form-group">
             <label class="form-label" for="new-password">Password</label>
             <input class="form-input" type="password" id="new-password" name="password" required />
@@ -200,15 +134,9 @@
         <h2 class="modal-title">Delete User</h2>
         <a class="modal-close" href="#">&times;</a>
       </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete this user? This action cannot be undone.</p>
-        <div class="modal-footer">
-          <a class="btn btn-secondary" href="#">Cancel</a>
-          <button class="btn btn-danger" type="button">Delete</button>
-        </div>
+      <div class="modal-body"></div>
       </div>
     </div>
     <a class="modal-overlay" href="#"></a>
     <!-- end delete user modal -->
-  </body>
-</html>
+`;
