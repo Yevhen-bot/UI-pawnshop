@@ -80,24 +80,46 @@ export default function Operations() {
     if (!Array.isArray(history)) {
       return {
         loans: 0,
-        redemptions: 0,
-        sold: 0,
-        totalValue: 0,
+        purchases: 0,
+        sales: 0,
+        netFlow: 0,
       };
     }
 
-    const totalValue = history.reduce((sum, op) => sum + parseFloat(op.price || 0), 0);
-    const getCount = (term) =>
-      history.filter((op) => {
-        const opName = relationalData.ops[op.operation] || '';
-        return opName.toLowerCase().includes(term);
-      }).length;
+    // Map operation IDs to names for reliable logic
+    const getOpName = (id) => (relationalData.ops[id] || '').toLowerCase();
+
+    let loans = 0;
+    let purchases = 0;
+    let sales = 0;
+    let netFlow = 0;
+
+    history.forEach((op) => {
+      const name = getOpName(op.operation);
+      const price = parseFloat(op.price || 0);
+
+      if (name.includes('sell') || name.includes('lend')) {
+        // Selling and Lending = Positive (+)
+        if (name.includes('sell')) sales += 1;
+        if (name.includes('lend')) loans += 1;
+        netFlow += price;
+      } else if (name.includes('purch') || name.includes('borrow')) {
+        // Purchasing and Borrowing = Negative (-)
+        if (name.includes('purch')) purchases += 1;
+        if (name.includes('borrow')) {
+          // Borrowing is often paired with lending, but per user logic it is negative
+          // We'll count it in the loans box for consistency, but with negative math
+          loans += 1;
+        }
+        netFlow -= price;
+      }
+    });
 
     return {
-      loans: getCount('lend'),
-      redemptions: getCount('borrow') + getCount('purch'),
-      sold: getCount('sell'),
-      totalValue,
+      loans,
+      purchases,
+      sales,
+      netFlow,
     };
   }, [history, relationalData.ops]);
 
@@ -109,16 +131,18 @@ export default function Operations() {
           <div className="stat-value blue">{stats.loans}</div>
         </div>
         <div className="stat-card">
-          <div className="stat-label">Page Redemptions</div>
-          <div className="stat-value green">{stats.redemptions}</div>
+          <div className="stat-label">Page Purchases</div>
+          <div className="stat-value green">{stats.purchases}</div>
         </div>
         <div className="stat-card">
-          <div className="stat-label">Page Items Sold</div>
-          <div className="stat-value orange">{stats.sold}</div>
+          <div className="stat-label">Page Sales</div>
+          <div className="stat-value orange">{stats.sales}</div>
         </div>
         <div className="stat-card">
-          <div className="stat-label">Page Value</div>
-          <div className="stat-value dark">{`$${Math.round(stats.totalValue).toLocaleString()}`}</div>
+          <div className="stat-label">Page Net Flow</div>
+          <div className={`stat-value ${stats.netFlow >= 0 ? 'dark' : 'red'}`}>
+            {`${stats.netFlow >= 0 ? '$' : '-$'}${Math.abs(Math.round(stats.netFlow)).toLocaleString()}`}
+          </div>
         </div>
       </div>
 

@@ -57,6 +57,6 @@ describe('Operations Page', () => {
     });
     render(<Operations />);
     await screen.findByText(/client #1/i);
-    expect(screen.getByText('Page Value')).toBeInTheDocument();
+    expect(screen.getByText('Page Net Flow')).toBeInTheDocument();
   });
 });
