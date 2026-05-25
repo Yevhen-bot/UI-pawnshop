@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect, useCallback, useRef, useMemo } from 'react';
-import api from '../services/api';
 
 export const NotificationContext = createContext();
 
@@ -29,23 +28,16 @@ export function NotificationProvider({ children }) {
 
     if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) return;
 
-    // Derive WebSocket URL from the API base URL so ports always match
-    const apiBase = api.defaults.baseURL;
-    const wsBase = apiBase.replace(/^http/, 'ws');
-    const wsUrl = `${wsBase}/ws/notifications/`;
-    const ws = new WebSocket(wsUrl);
+    const ws = new WebSocket('ws://127.0.0.1:8000/ws/notifications/');
 
     ws.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data);
-        addNotification(data.title || 'Notification', data.message || '', data.type || 'info');
+        const noteType = ['info', 'error', 'success', 'warning'].includes(data.type) ? data.type : 'info';
+        addNotification(data.title || 'Notification', data.message || '', noteType);
       } catch {
         /* ignore malformed messages */
       }
-    };
-
-    ws.onopen = () => {
-      if (wsRef.current !== ws) ws.close();
     };
 
     ws.onclose = () => {
@@ -63,8 +55,10 @@ export function NotificationProvider({ children }) {
 
   useEffect(() => {
     connect();
+
+    const ws = wsRef.current;
     return () => {
-      if (wsRef.current) wsRef.current.close();
+      if (ws) ws.close();
       if (reconnectTimeoutRef.current) clearTimeout(reconnectTimeoutRef.current);
     };
   }, [connect]);
