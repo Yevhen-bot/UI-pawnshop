@@ -1,5 +1,12 @@
 // pages/_catalog.scss
 
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+}
+
 .filter-bar {
     background: $color-surface;
     padding: $spacing-md;
